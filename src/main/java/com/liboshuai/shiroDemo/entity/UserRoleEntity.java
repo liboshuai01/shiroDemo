@@ -1,5 +1,8 @@
 package com.liboshuai.shiroDemo.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.*;
 
 /**
@@ -12,11 +15,15 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 @Builder
+@TableName(value = "user_role")
 public class UserRoleEntity {
 
+    @TableId("id")
     private Integer id;
 
+    @TableField("user_id")
     private Integer userId;
 
+    @TableField("role_id")
     private Integer roleId;
 }

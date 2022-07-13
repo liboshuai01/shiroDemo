@@ -1,5 +1,8 @@
 package com.liboshuai.shiroDemo.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.*;
 
 import java.io.Serializable;
@@ -14,14 +17,19 @@ import java.io.Serializable;
 @AllArgsConstructor
 @ToString
 @Builder
+@TableName(value = "user")
 public class UserEntity implements Serializable {
     private static final long serialVersionUID = -6056125703075132981L;
 
+    @TableId("id")
     private Integer id;
 
+    @TableField("account")
     private String account;
 
+    @TableField("password")
     private String password;
 
+    @TableField("username")
     private String username;
 }

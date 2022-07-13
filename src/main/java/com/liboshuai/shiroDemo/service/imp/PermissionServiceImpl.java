@@ -12,7 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -32,7 +34,7 @@ public class PermissionServiceImpl implements PermissionService {
     @Override
     public List<String> findByRoleId(List<Integer> roleIds) {
         QueryWrapper<RolePermissionEntity> objectQueryWrapper = new QueryWrapper<>();
-        objectQueryWrapper.eq("roleId", roleIds);
+        objectQueryWrapper.in("role_id", roleIds);
         // todo: 存疑，能否正确查出数据
         List<RolePermissionEntity> rolePermissionEntities = rolePermissionMapper.selectList(objectQueryWrapper);
         List<Integer> permissionIdS = rolePermissionEntities.stream().map(RolePermissionEntity::getPermissionId).collect(Collectors.toList());
