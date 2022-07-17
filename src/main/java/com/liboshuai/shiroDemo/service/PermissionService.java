@@ -12,5 +12,11 @@ import java.util.List;
 @Service
 public interface PermissionService {
 
+    /**
+     * 根据角色id批量获取权限信息
+     *
+     * @param roleIds 角色id集合
+     * @return 权限信息集合
+     */
     List<String> findByRoleId(List<Integer> roleIds);
 }
